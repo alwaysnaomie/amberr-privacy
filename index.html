@@ -1,123 +1,340 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMBERR — Politique de Confidentialité</title>
+<title>Confidentialité AMBERR</title>
 <style>
-  body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 20px; color: #1a1a1a; line-height: 1.6; }
-  h1 { color: #D28B2C; }
-  h2 { color: #D28B2C; margin-top: 40px; }
-  .subtitle { color: #6b6b6b; margin-bottom: 40px; }
-  .contact { background: #F9F9F9; padding: 20px; border-radius: 12px; margin-top: 40px; }
-  .lang-switch { text-align: right; margin-bottom: 20px; }
-  .lang-switch a { color: #D28B2C; text-decoration: none; }
-  #en { display: none; }
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #faf6ef;
+    --surface: #ffffff;
+    --ink: #241f18;
+    --ink-soft: #6b6255;
+    --ink-faint: #948b7c;
+    --accent: #a8672c;
+    --accent-soft: #e7cba4;
+    --border: #e6dcc9;
+    --serif: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+    --sans: 'Work Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17130e;
+      --surface: #201a13;
+      --ink: #f3ecdf;
+      --ink-soft: #beb2a0;
+      --ink-faint: #8c8172;
+      --accent: #e0a35c;
+      --accent-soft: #4a3721;
+      --border: #362b1e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17130e;
+    --surface: #201a13;
+    --ink: #f3ecdf;
+    --ink-soft: #beb2a0;
+    --ink-faint: #8c8172;
+    --accent: #e0a35c;
+    --accent-soft: #4a3721;
+    --border: #362b1e;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-inline: 24px;
+    padding-block: 56px 96px;
+  }
+
+  header.masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .wordmark {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .wordmark span { color: var(--accent); }
+
+  .meta {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    text-align: right;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 14px;
+  }
+
+  .intro {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0 0 40px;
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+  }
+  nav.toc p {
+    margin: 0 0 10px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+  }
+  nav.toc ol {
+    margin: 0;
+    padding-left: 1.2em;
+    columns: 2;
+    column-gap: 24px;
+  }
+  nav.toc li { break-inside: avoid; margin-bottom: 6px; }
+  nav.toc a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.92rem;
+    border-bottom: 1px solid transparent;
+  }
+  nav.toc a:hover { border-bottom-color: var(--accent); }
+
+  section {
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 20px;
+  }
+  section:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: -0.005em;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  h2 .num {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 24px 0 8px;
+    color: var(--ink);
+  }
+
+  p { max-width: 68ch; margin: 12px 0; }
+  p, li { color: var(--ink); }
+
+  ul.data-list {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  ul.data-list li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 0.93rem;
+  }
+  ul.data-list b { color: var(--ink); font-weight: 600; }
+  ul.data-list .why { color: var(--ink-soft); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.88rem;
+  }
+  .table-wrap { overflow-x: auto; }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 0.92rem;
+  }
+  .callout p { margin: 0; max-width: none; }
+  .callout a { color: inherit; text-decoration-color: currentColor; }
+
+  a { color: var(--accent); }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 520px) {
+    nav.toc ol { columns: 1; }
+    header.masthead { flex-direction: column; align-items: flex-start; }
+    .meta { text-align: left; }
+  }
 </style>
-</head>
-<body>
 
-<div class="lang-switch">
-  <a href="#" onclick="document.getElementById('fr').style.display='block';document.getElementById('en').style.display='none';return false;">FR</a>
-  &nbsp;|&nbsp;
-  <a href="#" onclick="document.getElementById('en').style.display='block';document.getElementById('fr').style.display='none';return false;">EN</a>
+<div class="page">
+
+  <header class="masthead">
+    <div class="wordmark">AMBER<span>R</span></div>
+    <div class="meta">Politique de confidentialité<br>Dernière mise à jour : 16 septembre 2026</div>
+  </header>
+
+  <h1>Comment AMBERR traite vos données</h1>
+  <p class="intro">AMBERR est une application iOS qui réorganise la musique que vous possédez déjà sur Apple Music en playlists cohérentes, à partir de votre bibliothèque et non de recommandations externes. Cette page explique précisément quelles données nous traitons pour ça, pourquoi, et comment les contrôler.</p>
+
+  <nav class="toc" aria-label="Sommaire">
+    <p>Sommaire</p>
+    <ol>
+      <li><a href="#editeur">Qui exploite AMBERR</a></li>
+      <li><a href="#donnees">Données que nous traitons</a></li>
+      <li><a href="#usage">Pourquoi nous les traitons</a></li>
+      <li><a href="#partage">Avec qui elles sont partagées</a></li>
+      <li><a href="#conservation">Combien de temps elles sont conservées</a></li>
+      <li><a href="#droits">Vos droits et la suppression de votre compte</a></li>
+      <li><a href="#securite">Sécurité</a></li>
+      <li><a href="#mineurs">Âge minimum</a></li>
+      <li><a href="#modifications">Modifications de cette politique</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <section id="editeur">
+    <h2><span class="num">01</span>Qui exploite AMBERR</h2>
+    <p>AMBERR (identifiant d'application <code>com.ambtn.AMBERR</code>) est éditée à titre indépendant par Naomie Matououidi. Pour toute question liée à vos données personnelles, le contact est <a href="mailto:contact@ambtn.fr">contact@ambtn.fr</a>.</p>
+  </section>
+
+  <section id="donnees">
+    <h2><span class="num">02</span>Données que nous traitons</h2>
+    <p>AMBERR ne collecte que ce qui sert directement à générer vos playlists et à faire fonctionner votre compte. Voici l'inventaire complet.</p>
+
+    <ul class="data-list">
+      <li><b>Informations de compte</b> — votre adresse email et votre mot de passe (stocké de façon chiffrée, jamais en clair), gérés via notre prestataire d'authentification Supabase.<br><span class="why">Sert à : créer et sécuriser votre compte.</span></li>
+      <li><b>Métadonnées de votre bibliothèque Apple Music</b> — titres, artistes, albums, genres et durée des morceaux de votre bibliothèque, lus via MusicKit après votre autorisation explicite. AMBERR ne modifie jamais votre bibliothèque ni votre compte Apple Music, et n'accède jamais au contenu audio lui-même.<br><span class="why">Sert à : construire votre profil musical et générer vos Experiences.</span></li>
+      <li><b>Résultats d'analyse musicale</b> — des attributs dérivés (ambiance, énergie, tempo perçu...) calculés à partir des métadonnées ci-dessus, en partie via le modèle OpenAI GPT-4o-mini, appelé depuis nos serveurs — jamais directement depuis votre appareil.<br><span class="why">Sert à : classer vos morceaux par ambiance et composer vos playlists.</span></li>
+      <li><b>Playlists générées et préférences</b> — les Experiences créées pour vous, ainsi que vos retours (« plus/moins comme ça », exclusions).<br><span class="why">Sert à : afficher vos playlists et affiner les prochaines.</span></li>
+      <li><b>Statut d'abonnement</b> — si vous souscrivez à AMBERR Premium, Apple gère directement votre moyen de paiement : nous ne voyons et ne stockons jamais vos coordonnées bancaires. Nous recevons uniquement le statut de votre abonnement (actif, expiré) et l'identifiant du produit acheté, pour débloquer les fonctionnalités Premium.<br><span class="why">Sert à : activer votre accès Premium.</span></li>
+      <li><b>Jeton de notification</b> — un identifiant technique fourni par Apple (APNs) pour vous notifier quand une analyse de bibliothèque est terminée.<br><span class="why">Sert à : vous prévenir sans que vous ayez à garder l'app ouverte.</span></li>
+      <li><b>Localisation approximative (facultative)</b> — si vous l'autorisez, utilisée uniquement pendant l'usage de l'app pour calculer une information contextuelle locale (par exemple l'heure du coucher de soleil) au service de certaines suggestions de playlists. Refuser cette autorisation ne bloque aucune fonctionnalité essentielle.<br><span class="why">Sert à : contextualiser certaines Experiences.</span></li>
+    </ul>
+
+    <p>AMBERR ne collecte jamais vos contacts, vos photos, votre historique de navigation, et n'accède à aucune donnée de votre appareil au-delà de ce qui est listé ci-dessus.</p>
+  </section>
+
+  <section id="usage">
+    <h2><span class="num">03</span>Pourquoi nous les traitons</h2>
+    <p>Toutes les données ci-dessus servent un seul objectif : transformer la musique que vous possédez déjà en playlists cohérentes et pertinentes pour vous. AMBERR ne vend aucune donnée, ne les utilise pas à des fins publicitaires, et ne les partage jamais avec des tiers pour leur propre usage commercial.</p>
+  </section>
+
+  <section id="partage">
+    <h2><span class="num">04</span>Avec qui elles sont partagées</h2>
+    <p>Nous faisons appel à un nombre restreint de prestataires techniques, chacun n'ayant accès qu'aux données strictement nécessaires à son rôle.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Prestataire</th><th>Rôle</th><th>Données concernées</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Apple (MusicKit, StoreKit)</td><td>Accès à votre bibliothèque Apple Music, gestion des abonnements et des paiements</td><td>Autorisation Apple Music, transactions d'achat</td></tr>
+          <tr><td>Supabase (hébergé en Irlande, UE)</td><td>Authentification et base de données</td><td>Compte, profil musical, playlists</td></tr>
+          <tr><td>OpenAI</td><td>Classification d'ambiance musicale (GPT-4o-mini)</td><td>Métadonnées de morceaux (titre, artiste, genre) — jamais votre identité</td></tr>
+          <tr><td>Railway</td><td>Hébergement de notre serveur applicatif</td><td>Requêtes transitant par notre backend</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nous ne partageons aucune donnée personnelle au-delà de ce tableau, sauf obligation légale.</p>
+  </section>
+
+  <section id="conservation">
+    <h2><span class="num">05</span>Combien de temps elles sont conservées</h2>
+    <p>Vos données sont conservées tant que votre compte existe. Si vous demandez la suppression de votre compte (voir section suivante), l'ensemble de vos données personnelles — profil musical, playlists, préférences — est supprimé de nos serveurs, à l'exception des informations que nous devons conserver pour répondre à une obligation légale ou comptable (par exemple un historique de transaction Apple, conservé selon les délais légaux applicables).</p>
+  </section>
+
+  <section id="droits">
+    <h2><span class="num">06</span>Vos droits et la suppression de votre compte</h2>
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression, de portabilité et d'opposition sur vos données. Pour exercer l'un de ces droits, ou pour demander la suppression complète de votre compte et de vos données, écrivez à <a href="mailto:contact@ambtn.fr">contact@ambtn.fr</a> depuis l'adresse email associée à votre compte AMBERR.</p>
+    <div class="callout">
+      <p>Nous traitons chaque demande de suppression sous 30 jours maximum. Une suppression directement depuis l'application est en préparation ; en attendant, la demande par email fait foi et est traitée avec la même priorité.</p>
+    </div>
+  </section>
+
+  <section id="securite">
+    <h2><span class="num">07</span>Sécurité</h2>
+    <p>Les échanges entre l'application et nos serveurs sont chiffrés (HTTPS/TLS). Les transactions d'abonnement sont vérifiées cryptographiquement auprès d'Apple avant toute activation Premium. Aucune information de paiement ne transite ni n'est stockée par AMBERR.</p>
+  </section>
+
+  <section id="mineurs">
+    <h2><span class="num">08</span>Âge minimum</h2>
+    <p>AMBERR nécessite un compte Apple Music et n'est pas destinée aux enfants. Si vous pensez qu'un mineur nous a transmis des données sans autorisation parentale, contactez-nous : nous les supprimerons.</p>
+  </section>
+
+  <section id="modifications">
+    <h2><span class="num">09</span>Modifications de cette politique</h2>
+    <p>Si cette politique évolue de façon significative, la date de mise à jour en haut de cette page sera modifiée en conséquence. Nous vous invitons à la consulter périodiquement.</p>
+  </section>
+
+  <section id="contact">
+    <h2><span class="num">10</span>Contact</h2>
+    <p>Pour toute question sur cette politique ou sur vos données : <a href="mailto:contact@ambtn.fr">contact@ambtn.fr</a>.</p>
+  </section>
+
+  <footer>
+    AMBERR — Make Music Matter.
+  </footer>
+
 </div>
-
-<div id="fr">
-<h1>AMBERR</h1>
-<p class="subtitle">Politique de Confidentialité — Dernière mise à jour : 14 juillet 2026</p>
-
-<p><strong>Éditeur</strong><br>
-AMBERR est développée par Naomie MATOUOUIDI, sous la marque commerciale AMBTN, micro-entreprise enregistrée en France.<br>
-Contact : contact@ambtn.fr</p>
-
-<h2>1. Données collectées</h2>
-<p><strong>Données de compte :</strong> adresse email, prénom ou pseudo, mot de passe (chiffré).</p>
-<p><strong>Données musicales :</strong> métadonnées de ta bibliothèque Apple Music (titres, artistes, albums, BPM estimé). Aucun fichier audio n'est transmis ou enregistré.</p>
-<p><strong>Données d'analyse :</strong> profil musical calculé (Music DNA™, AmberScore™, genres dominants), Experiences™ générées, préférences de morceaux.</p>
-<p><strong>Données techniques :</strong> identifiant anonyme de session, langue et région de l'appareil.</p>
-
-<h2>2. Utilisation des données</h2>
-<p>Les données collectées sont utilisées exclusivement pour créer ton profil musical, générer tes Experiences™, améliorer la qualité des sélections et t'envoyer des notifications liées à l'analyse.</p>
-<p>AMBERR ne vend jamais tes données à des tiers. AMBERR n'utilise pas tes données à des fins publicitaires.</p>
-
-<h2>3. Services tiers</h2>
-<p><strong>Apple MusicKit</strong> — Accès en lecture seule à ta bibliothèque Apple Music.</p>
-<p><strong>Supabase</strong> — Stockage sécurisé, serveurs dans l'Union Européenne.</p>
-<p><strong>OpenAI</strong> — Analyse des métadonnées musicales. Aucune donnée personnelle identifiable n'est transmise — uniquement titres et artistes.</p>
-<p><strong>Last.fm</strong> — Enrichissement des métadonnées musicales.</p>
-
-<h2>4. Conservation des données</h2>
-<p>Tes données sont conservées tant que ton compte est actif. Tu peux supprimer ton compte à tout moment depuis l'écran Profil — toutes tes données sont alors supprimées définitivement.</p>
-
-<h2>5. Tes droits (RGPD)</h2>
-<p>Tu disposes des droits d'accès, de rectification, d'effacement, de portabilité et d'opposition. Pour exercer ces droits : contact@ambtn.fr</p>
-
-<h2>6. Sécurité</h2>
-<p>Chiffrement en transit (HTTPS/TLS), chiffrement des mots de passe, accès restreint par politique RLS sur Supabase. Aucun accès aux fichiers audio.</p>
-
-<h2>7. Notifications</h2>
-<p>AMBERR peut envoyer des notifications locales pour t'informer qu'une analyse est terminée ou te rappeler d'en relancer une. Tu peux les désactiver dans les Réglages iOS ou depuis l'écran Profil.</p>
-
-<h2>8. Enfants</h2>
-<p>AMBERR n'est pas destinée aux enfants de moins de 13 ans.</p>
-
-<h2>9. Modifications</h2>
-<p>En cas de modification importante, tu seras notifié dans l'application.</p>
-
-<div class="contact">
-<strong>Contact</strong><br>
-📧 contact@ambtn.fr
-</div>
-</div>
-
-<div id="en">
-<h1>AMBERR</h1>
-<p class="subtitle">Privacy Policy — Last updated: July 14, 2026</p>
-
-<p><strong>Publisher</strong><br>
-AMBERR is developed by Naomie MATOUOUIDI, under the brand AMBTN, a sole proprietorship registered in France.<br>
-Contact: contact@ambtn.fr</p>
-
-<h2>1. Data Collected</h2>
-<p><strong>Account data:</strong> email address, first name or username, password (encrypted).</p>
-<p><strong>Music data:</strong> Apple Music library metadata (titles, artists, albums, estimated BPM). No audio files are transmitted or stored.</p>
-<p><strong>Analysis data:</strong> calculated music profile (Music DNA™, AmberScore™, dominant genres), generated Experiences™, track preferences.</p>
-<p><strong>Technical data:</strong> anonymous session identifier, device language and region.</p>
-
-<h2>2. Use of Data</h2>
-<p>Data is used exclusively to create your music profile, generate your Experiences™, improve selection quality, and send analysis notifications.</p>
-<p>AMBERR never sells your data. AMBERR does not use your data for advertising.</p>
-
-<h2>3. Third-Party Services</h2>
-<p><strong>Apple MusicKit</strong> — Read-only access to your Apple Music library.</p>
-<p><strong>Supabase</strong> — Secure storage, EU servers.</p>
-<p><strong>OpenAI</strong> — Music metadata analysis. No personally identifiable data is shared.</p>
-<p><strong>Last.fm</strong> — Music metadata enrichment.</p>
-
-<h2>4. Data Retention</h2>
-<p>Data is retained while your account is active. You can delete your account at any time from the Profile screen.</p>
-
-<h2>5. Your Rights (GDPR)</h2>
-<p>You have the right to access, rectify, erase, port, and object to processing. Contact: contact@ambtn.fr</p>
-
-<h2>6. Security</h2>
-<p>HTTPS/TLS encryption, bcrypt password hashing, Supabase RLS policies. No access to audio files.</p>
-
-<h2>7. Notifications</h2>
-<p>Local notifications for analysis completion and weekly reminders. Can be disabled in iOS Settings or AMBERR Profile.</p>
-
-<h2>8. Children</h2>
-<p>AMBERR is not intended for children under 13.</p>
-
-<h2>9. Changes</h2>
-<p>Policy updates will be notified in-app.</p>
-
-<div class="contact">
-<strong>Contact</strong><br>
-📧 contact@ambtn.fr
-</div>
-</div>
-
-</body>
-</html>
