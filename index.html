@@ -266,7 +266,7 @@
     <ul class="data-list">
       <li><b>Informations de compte</b> — votre adresse email et votre mot de passe (stocké de façon chiffrée, jamais en clair), gérés via notre prestataire d'authentification Supabase.<br><span class="why">Sert à : créer et sécuriser votre compte.</span></li>
       <li><b>Métadonnées de votre bibliothèque Apple Music</b> — titres, artistes, albums, genres et durée des morceaux de votre bibliothèque, lus via MusicKit après votre autorisation explicite. AMBERR ne modifie jamais votre bibliothèque ni votre compte Apple Music, et n'accède jamais au contenu audio lui-même.<br><span class="why">Sert à : construire votre profil musical et générer vos Experiences.</span></li>
-      <li><b>Résultats d'analyse musicale</b> — des attributs dérivés (ambiance, énergie, tempo perçu...) calculés à partir des métadonnées ci-dessus, en partie via le modèle OpenAI GPT-4o-mini, appelé depuis nos serveurs — jamais directement depuis votre appareil.<br><span class="why">Sert à : classer vos morceaux par ambiance et composer vos playlists.</span></li>
+      <li><b>Résultats d'analyse musicale</b> — des attributs dérivés (ambiance, énergie, tempo perçu...) calculés à partir des métadonnées ci-dessus, via le modèle OpenAI GPT-4o-mini et le service FreqBlog (extraction de caractéristiques audio comme le tempo et l'énergie), tous deux appelés depuis nos serveurs — jamais directement depuis votre appareil. Cette transmission ne démarre qu'après votre consentement explicite, demandé dans l'application avant votre première analyse.<br><span class="why">Sert à : classer vos morceaux par ambiance et composer vos playlists.</span></li>
       <li><b>Playlists générées et préférences</b> — les Experiences créées pour vous, ainsi que vos retours (« plus/moins comme ça », exclusions).<br><span class="why">Sert à : afficher vos playlists et affiner les prochaines.</span></li>
       <li><b>Statut d'abonnement</b> — si vous souscrivez à AMBERR Premium, Apple gère directement votre moyen de paiement : nous ne voyons et ne stockons jamais vos coordonnées bancaires. Nous recevons uniquement le statut de votre abonnement (actif, expiré) et l'identifiant du produit acheté, pour débloquer les fonctionnalités Premium.<br><span class="why">Sert à : activer votre accès Premium.</span></li>
       <li><b>Jeton de notification</b> — un identifiant technique fourni par Apple (APNs) pour vous notifier quand une analyse de bibliothèque est terminée.<br><span class="why">Sert à : vous prévenir sans que vous ayez à garder l'app ouverte.</span></li>
@@ -293,11 +293,13 @@
           <tr><td>Apple (MusicKit, StoreKit)</td><td>Accès à votre bibliothèque Apple Music, gestion des abonnements et des paiements</td><td>Autorisation Apple Music, transactions d'achat</td></tr>
           <tr><td>Supabase (hébergé en Irlande, UE)</td><td>Authentification et base de données</td><td>Compte, profil musical, playlists</td></tr>
           <tr><td>OpenAI</td><td>Classification d'ambiance musicale (GPT-4o-mini)</td><td>Métadonnées de morceaux (titre, artiste, genre) — jamais votre identité</td></tr>
+          <tr><td>FreqBlog</td><td>Extraction de caractéristiques audio (tempo, énergie, tonalité)</td><td>Métadonnées de morceaux (titre, artiste) — jamais votre identité</td></tr>
           <tr><td>Railway</td><td>Hébergement de notre serveur applicatif</td><td>Requêtes transitant par notre backend</td></tr>
         </tbody>
       </table>
     </div>
     <p>Nous ne partageons aucune donnée personnelle au-delà de ce tableau, sauf obligation légale.</p>
+    <p>Le partage de métadonnées musicales avec OpenAI et FreqBlog nécessite votre consentement explicite, demandé dans l'application avant votre première analyse — jamais en arrière-plan ni par défaut. Vous pouvez le retirer à tout moment depuis Profil → « Retirer mon consentement d'analyse » ; vous ne pourrez alors plus lancer de nouvelle analyse tant qu'un nouveau consentement n'est pas donné.</p>
   </section>
 
   <section id="conservation">
